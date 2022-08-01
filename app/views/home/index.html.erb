@@ -1,3 +1,9 @@
 <div class="d-flex align-items-center justify-content-center">
-  <h1>Welcome to the jungle</h1>
+  <% if @current_device %>
+    <h1>Welcome <span style="color:blue;"><%= @current_device.name %></span> as i can see, you are a device.</h1>
+  <% elsif user_signed_in? %>
+    <h1>Welcome <%= current_user.user_name %> you smell like a human.</h1>
+  <% end %>
 </div>
+
+<%= render partial: "home/online_devices_list", collection: @devices, as: :online_device %>

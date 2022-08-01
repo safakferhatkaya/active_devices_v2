@@ -16,6 +16,6 @@ class DevicesController < ApplicationController
 
   private
   def device_params
-    params.require(:device).permit(:reference)
+    params.require(:device).permit(:name)
   end
 end

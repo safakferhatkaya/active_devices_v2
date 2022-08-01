@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 
   def create
     @device = Device.find_by(reference: params[:reference])
-    if @device && @device.authenticate(params[:password])
+    if @device && @device.password = params[:password]#@device.authenticate(params[:password])
       session[:device_id] = @device.id
-      redirect_to root_path
+      redirect_to root_path, notice: "Welcome Dear Device!"
     else
       render :new
     end
