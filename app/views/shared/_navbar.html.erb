@@ -17,6 +17,10 @@
             <i class="fas fa-sign-out-alt p-2">Logout</i>
           <% end %>
         </li>
+        <li class="nav-item">
+          <%= link_to new_device_path, class: "nav-link" do %>
+            <i class="fas fa-laptop p-2">Add Device</i>
+          <% end %>
       <% else %>
         <li class="nav-item">
           <%= link_to new_user_session_path, class: "nav-link" do %>

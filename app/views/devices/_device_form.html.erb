@@ -1,0 +1,21 @@
+<%= simple_form_for @device do |f| %>
+  <%= f.error :base, :error_method => :to_sentence, class: "alert alert-danger" %>
+    <% if @device.errors.present? %>
+      <div class="alert alert-custom alert-outline-2x alert-outline-danger fade show mb-5">
+        <div class="alert-icon"><i class="far fa-exclamation-circle"></i></div>
+        <p class="alert-text font-weight-bold"><%= @device.errors.full_messages.join("; ") %></p>
+      </div>
+    <% end %>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+      <%= f.input :name, label: false, as: :text, placeholder: "Name of Device", input_html: { rows: 1 } %>
+    </div>
+  </div>
+  <div class="separator separator-solid my-4"></div>
+    <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+      <%= f.button :submit, "Generate Device", class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
+<% end %>
