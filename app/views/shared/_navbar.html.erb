@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-blue bg-blue">
+  <a class="navbar-brand" href="#">Active Devices</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fas fa-home p-2">Home</i>
+        <% end %>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to destroy_session_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-sign-out-alt p-2">Logout</i>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: "nav-link" do %>
+            <i class="fas fa-sign-in-alt p-2">Login</i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_registration_path, class: "nav-link" do %>
+              <i class="fas fa-user-plus p-2">Register</i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
