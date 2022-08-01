@@ -1,7 +1,9 @@
 <div class="d-flex align-items-center justify-content-center">
   <% if @current_device %>
     <h1>Welcome <span style="color:blue;"><%= @current_device.name %></span> as i can see, you are a device.</h1>
+    
     <%= render partial: "devices/online_devices_list", locals: { devices: @devices } %>
+    
   <% elsif user_signed_in? %>
     <h1>Welcome <%= current_user.user_name %> you smell like a human.</h1>
     <p> If you wanna do something, you can do it here: </p>
