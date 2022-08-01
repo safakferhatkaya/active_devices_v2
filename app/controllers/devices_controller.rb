@@ -1,5 +1,9 @@
 class DevicesController < ApplicationController
 
+  def index
+    @devices = Device.where(user_id: current_user.id)
+  end
+  
   def new
     @device = Device.new
   end
@@ -8,7 +12,9 @@ class DevicesController < ApplicationController
     @device = Device.new(device_params)
     @device.user_id = current_user.id
     if @device.save
-      redirect_to root_path, notice: "Device created!"
+      #show credentials once with turbo
+      redirect_to devices_path, notice: "Device created!"
+      
     else
       render :new
     end
@@ -16,6 +22,6 @@ class DevicesController < ApplicationController
 
   private
   def device_params
-    params.require(:device).permit(:name)
+    params.require(:device).permit(:name, :notes)
   end
 end

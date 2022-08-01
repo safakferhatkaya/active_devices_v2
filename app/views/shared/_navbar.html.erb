@@ -21,16 +21,27 @@
           <%= link_to new_device_path, class: "nav-link" do %>
             <i class="fas fa-laptop p-2">Add Device</i>
           <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to sign_in_path, class: "nav-link" do %>
+              <i class="fas fa-laptop p-2">Login as Device</i>
+          <% end %>
+        </li>
+      <% elsif @current_device %>
+        <li class="nav-item">
+          <%= link_to logout_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-sign-out-alt p-2">Logout</i>
+          <% end %>
+        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to new_user_session_path, class: "nav-link" do %>
             <i class="fas fa-sign-in-alt p-2">Login</i>
           <% end %>
         </li>
-
         <li class="nav-item">
           <%= link_to sign_in_path, class: "nav-link" do %>
-              <i class="fas fa-user-laptop p-2">Login as Device</i>
+              <i class="fas fa-laptop p-2">Login as Device</i>
           <% end %>
         </li>
         <li class="nav-item">

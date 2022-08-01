@@ -2,17 +2,12 @@
   <table id="active_devices_list_table" class="table table-vertical-center">
     <thead>
       <tr class="text-dark text-uppercase">
-        <th></th>
         <th> Device Name </th>
         <th> Description </th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><i style="color:green" class="fa-solid fa-globe"></i></td>
-        <td><%= online_device.name %></td>
-        <td><%= online_device.notes %></td>
-      </tr>
+      <%= render partial: "devices/device", collection: @devices, as: :device %>
     </tbody>
   </table>
 </div>

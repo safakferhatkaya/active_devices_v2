@@ -1,0 +1,14 @@
+<div class="table-responsive table-truncate mt-8 min-h-300px">
+  <table id="active_devices_list_table" class="table table-vertical-center">
+    <thead>
+      <tr class="text-dark text-uppercase">
+        <th></th>
+        <th> Device Name </th>
+        <th> Description </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "devices/online_device", collection: devices, as: :online_device %>
+    </tbody>
+  </table>
+</div>
