@@ -1,6 +1,16 @@
-
-  <tr>
+<%= content_tag :tr, id: dom_id(device) do %>
     <td><%= device.name %></td>
     <td><%= device.notes %></td>
+    <% if device.is_credentials_showed %>
+      <td></td>
+    <% else %>
+      <td><%= link_to 'Show Credentials', credentials_device_path(device), remote: true %></td>
+    <% end %>
     <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%#= link_to 'Destroy', device, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
   </tr>
+<% end %>
+
+<script>
+  
+</script>

@@ -1,5 +1,6 @@
-<tr>
-  <td><i style="color:green" class="fa-solid fa-globe"></i></td>
-  <td><%= online_device.name %></td>
-  <td><%= online_device.notes %></td>
-</tr>
+<%= content_tag :tr, id: dom_id(online_device) do %>
+    <td><i style="color:green" class="fa-solid fa-globe"></i></td>
+    <td><%= online_device.name %></td>
+    <td><%= online_device.notes %></td>
+  </tr>
+<% end %>
