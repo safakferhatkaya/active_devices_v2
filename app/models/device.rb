@@ -2,8 +2,9 @@ class Device < ApplicationRecord
   
   before_validation :generate_reference
   before_validation :generate_password
-  #before_validation :password_digest, :password
-  #has_secure_password 
+  after_create_commit { broadcast_append_to "devices" }
+  after_update_commit { broadcast_replace_to "devices" }
+  after_destroy_commit { broadcast_remove_to "devices" }
   belongs_to :user, foreign_key: 'user_id'
 
   attr_accessor :password
