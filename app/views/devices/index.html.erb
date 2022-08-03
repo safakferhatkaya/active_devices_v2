@@ -1,4 +1,8 @@
-<%= turbo_stream_from "devices" %>
-<%= turbo_frame_tag "devices" do %>
+<%
+=begin%>
+ <%= turbo_stream_from "devices" %>
+<%= turbo_frame_tag "devices" do %> 
+<%
+=end%>
   <%= render "devices/devices_list" %>
-<% end %>
+<%# end %>

@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-
+  after_action :update_is_credentials_showed, only: [:credentials]
   def index
     @devices = Device.where(user_id: current_user.id).order(id: :desc)
   end
@@ -24,16 +24,14 @@ class DevicesController < ApplicationController
   end
 
   def credentials
-    @device = Device.find(params[:id])
-    @device.is_credentials_showed = true
-    @device.save
+    set_device
     respond_to do |format|
       format.js
     end
   end
 
   def destroy
-    @device = Device.find(params[:id])
+    set_device
     @device.destroy
     respond_to do |format|
       #format.turbo_stream { render turbo_stream: turbo_stream.remove(@device)}
@@ -44,5 +42,13 @@ class DevicesController < ApplicationController
   private
   def device_params
     params.require(:device).permit(:name, :notes)
+  end
+
+  def set_device
+    @device = Device.find(params[:id])
+  end
+
+  def update_is_credentials_showed
+    @device.update(is_credentials_showed: true)
   end
 end

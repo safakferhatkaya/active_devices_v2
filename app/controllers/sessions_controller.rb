@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    #burada boolean is_active false yapılabilir
     session[:device_id] = nil
     redirect_to root_path, notice: "Logged out!"
   end
